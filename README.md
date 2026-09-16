@@ -8,8 +8,6 @@
 
 ![Payload Output](docs/screenshots/02-payload-output.png)
 
-![Splash Screen](docs/screenshots/03-splash-screen.png)
-
 ## ⚠️ Disclaimer
 
 **This tool is intended for authorized security testing and AI safety research only.** Unauthorized use against systems you do not own or have explicit permission to test is illegal. The author assumes no liability for misuse.
