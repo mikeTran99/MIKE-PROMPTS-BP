@@ -4,9 +4,15 @@
 
 > ⚡ Bộ công cụ Red Team / Kiểm thử xâm nhập cho bảo mật AI & LLM — **15 Kiểu tấn công · 8 Mã hóa Payload · 15 Hồ sơ AI mục tiêu · 7 Giao diện Luxury**
 
+<p align="center">
+  <img src="docs/screenshots/03-logo.jpg" width="200" alt="MIKE-PROMPTS-BP Logo">
+</p>
+
 ![Giao diện chính](docs/screenshots/01-main-ui.png)
 
 ![Kết quả Payload](docs/screenshots/02-payload-output.png)
+
+![Giao diện toàn màn hình](docs/screenshots/04-main-ui-fullscreen.png)
 
 ## ⚠️ Tuyên bố miễn trừ
 

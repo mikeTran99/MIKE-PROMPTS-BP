@@ -4,9 +4,15 @@
 
 > ⚡ Red Team / Penetration Testing toolkit for AI & LLM security — **15 Attack Types · 8 Payload Encodings · 15 AI Target Profiles · 7 Luxury Themes**
 
+<p align="center">
+  <img src="docs/screenshots/03-logo.jpg" width="200" alt="MIKE-PROMPTS-BP Logo">
+</p>
+
 ![Main UI](docs/screenshots/01-main-ui.png)
 
 ![Payload Output](docs/screenshots/02-payload-output.png)
+
+![Fullscreen UI](docs/screenshots/04-main-ui-fullscreen.png)
 
 ## ⚠️ Disclaimer
 
