@@ -1,0 +1,38 @@
+# Build artifacts
+build/
+dist/
+*.spec
+*.exe
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Agent/AI config (local)
+.agents/
+
+# Logs & runtime data
+logs/
+debug/
+prompt_history.json
+
+# OS files
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# PyInstaller
+*.manifest
