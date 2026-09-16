@@ -41,18 +41,11 @@ Hide entire attack payloads inside innocent-looking text using zero-width Unicod
 ### 💡 Smart Recommendations
 Select an AI target → get instant recommendations for optimal attack types and encodings based on real-world testing data.
 
-## 📦 Installation
+## 📦 Download
 
-### Option 1: Standalone Executable (Windows)
-Download `MikePromptsBP.exe` from the [Releases](https://github.com/mikeTran99/MIKE-PROMPTS-BP/releases) page. No installation needed — just run.
+Download `MikePromptsBP.exe` from the [**Releases**](https://github.com/mikeTran99/MIKE-PROMPTS-BP/releases) page.
 
-### Option 2: Run from Source
-```bash
-git clone https://github.com/mikeTran99/MIKE-PROMPTS-BP.git
-cd MIKE-PROMPTS-BP
-pip install -r requirements.txt
-python inject.py
-```
+> **Portable** — No installation needed. Just download and run on Windows.
 
 ## 🚀 Quick Start
 
@@ -76,31 +69,7 @@ python inject.py
 - **Python 3.14** — Core runtime
 - **CustomTkinter** — Modern dark-themed GUI framework
 - **Pillow** — Image processing for app icons
-- **IME Fix v3** — Vietnamese input method crash prevention (Windows)
 - **PyInstaller** — Single-file `.exe` packaging
-
-## 📋 Project Structure
-
-```
-MIKE-PROMPTS-BP/
-├── inject.py          # Main application (~2500 lines)
-├── ime_fix.py         # Vietnamese IME crash prevention
-├── icon-app.ico       # Application icon
-├── icon-app.png       # Application logo
-├── logo.png           # Splash screen logo
-├── requirements.txt   # Python dependencies
-├── LICENSE            # MIT License
-└── tests/
-    ├── test_inject.py   # 114 unit tests
-    └── test_stealth.py  # 12 steganography tests
-```
-
-## 🧪 Testing
-
-```bash
-python tests/test_inject.py    # 114 tests — encoders, templates, pipeline
-python tests/test_stealth.py   # 12 tests — steganography encode/decode
-```
 
 ## 📜 License
 

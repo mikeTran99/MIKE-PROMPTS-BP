@@ -41,18 +41,11 @@ Toàn bộ giao diện **Tiếng Việt / Tiếng Anh** chuyển đổi bằng m
 ### 💡 Gợi ý Thông minh
 Chọn AI mục tiêu → nhận gợi ý tức thì về kiểu tấn công và mã hóa tối ưu dựa trên dữ liệu kiểm thử thực tế.
 
-## 📦 Cài đặt
+## 📦 Tải về
 
-### Cách 1: File thực thi (Windows)
-Tải `MikePromptsBP.exe` từ trang [Releases](https://github.com/mikeTran99/MIKE-PROMPTS-BP/releases). Không cần cài đặt — chỉ cần chạy.
+Tải `MikePromptsBP.exe` từ trang [**Releases**](https://github.com/mikeTran99/MIKE-PROMPTS-BP/releases).
 
-### Cách 2: Chạy từ mã nguồn
-```bash
-git clone https://github.com/mikeTran99/MIKE-PROMPTS-BP.git
-cd MIKE-PROMPTS-BP
-pip install -r requirements.txt
-python inject.py
-```
+> **Portable** — Không cần cài đặt. Chỉ cần tải về và chạy trên Windows.
 
 ## 🚀 Hướng dẫn nhanh
 
@@ -67,7 +60,7 @@ python inject.py
 ## ⌨️ Phím tắt
 
 | Phím tắt | Hành động |
-|----------|-----------|
+|----------|-----------| 
 | `Ctrl+Shift+C` | Sao chép payload vào clipboard |
 | `Ctrl+Shift+S` | Xuất payload ra file .txt |
 
@@ -76,15 +69,7 @@ python inject.py
 - **Python 3.14** — Runtime chính
 - **CustomTkinter** — Framework GUI dark theme hiện đại
 - **Pillow** — Xử lý hình ảnh cho icon ứng dụng
-- **IME Fix v3** — Chống crash khi gõ tiếng Việt (Windows)
 - **PyInstaller** — Đóng gói `.exe` đơn file
-
-## 🧪 Kiểm thử
-
-```bash
-python tests/test_inject.py    # 114 tests — encoders, templates, pipeline
-python tests/test_stealth.py   # 12 tests — steganography encode/decode
-```
 
 ## 📜 Giấy phép
 
