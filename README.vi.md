@@ -6,6 +6,10 @@
 
 ![Giao diện chính](docs/screenshots/01-main-ui.png)
 
+![Kết quả Payload](docs/screenshots/02-payload-output.png)
+
+![Splash Screen](docs/screenshots/03-splash-screen.png)
+
 ## ⚠️ Tuyên bố miễn trừ
 
 **Công cụ này chỉ dành cho kiểm thử bảo mật được ủy quyền và nghiên cứu an toàn AI.** Sử dụng trái phép đối với các hệ thống bạn không sở hữu hoặc không có quyền kiểm thử rõ ràng là bất hợp pháp. Tác giả không chịu trách nhiệm về việc sử dụng sai mục đích.
