@@ -235,7 +235,7 @@ def _contrast_text_color(hex_bg):
 
 LANGS = {
     'vi': {
-        'app_title': 'MIKE-PROMPTS-BP v6.0',
+        'app_title': 'MIKE-PROMPTS-BP v7.0 — Luxury Edition',
         'guide_btn': '📖  Hướng dẫn',
         'target_label': 'MỤC TIÊU TẤN CÔNG',
         'target_desc': 'Vai trò / danh tính mà AI sẽ bị ép nhận',
@@ -318,7 +318,7 @@ LANGS = {
         'theme_dark': '🖤 Dark Pro', 'theme_light': '☀ Light Mode',
     },
     'en': {
-        'app_title': 'MIKE-PROMPTS-BP v6.0',
+        'app_title': 'MIKE-PROMPTS-BP v7.0 — Luxury Edition',
         'guide_btn': '📖  Guide',
         'target_label': 'TARGET ROLE',
         'target_desc': 'Role / identity to force upon the AI',
@@ -1934,21 +1934,27 @@ class LuxurySplash:
         # ─── Geometry: center on screen ───
         sw = self.splash.winfo_screenwidth()
         sh = self.splash.winfo_screenheight()
-        w, h = 520, 340
+        w, h = 540, 360
         x, y = (sw - w) // 2, (sh - h) // 2
         self.splash.geometry(f'{w}x{h}+{x}+{y}')
-        self.splash.configure(bg='#0f0f14')
+        self.splash.configure(bg='#0a0b10')
 
         # ─── Canvas for custom drawing ───
         self.canvas = tk.Canvas(self.splash, width=w, height=h,
-                                bg='#0f0f14', highlightthickness=0)
+                                bg='#0a0b10', highlightthickness=0)
         self.canvas.pack(fill='both', expand=True)
 
-        # Gold decorative border
+        # High-tech Cyberpunk & Gold decorative border
         self.canvas.create_rectangle(2, 2, w - 2, h - 2,
-                                     outline='#c9a84c', width=1)
+                                     outline='#00d2ff', width=1)
         self.canvas.create_rectangle(6, 6, w - 6, h - 6,
-                                     outline='#8a7a3a', width=1)
+                                     outline='#c9a84c', width=1)
+
+        # Holographic glow rings behind logo
+        self.canvas.create_oval(w // 2 - 62, 92 - 62, w // 2 + 62, 92 + 62,
+                                outline='#00d2ff', width=2)
+        self.canvas.create_oval(w // 2 - 66, 92 - 66, w // 2 + 66, 92 + 66,
+                                outline='#0072ff', width=1)
 
         # Logo placeholder (will load async)
         self._logo_tk = None
@@ -1956,35 +1962,35 @@ class LuxurySplash:
         if os.path.exists(png_path):
             try:
                 pil_img = PILImage.open(png_path).convert('RGBA')
-                pil_img = pil_img.resize((100, 100), PILImage.LANCZOS)
+                pil_img = pil_img.resize((110, 110), PILImage.LANCZOS)
                 from PIL import ImageTk
                 self._logo_tk = ImageTk.PhotoImage(pil_img)
-                self.canvas.create_image(w // 2, 80, image=self._logo_tk)
+                self.canvas.create_image(w // 2, 92, image=self._logo_tk)
             except Exception:
                 # Fallback: gold hexagon text
-                self.canvas.create_text(w // 2, 80, text='⬡',
-                                        font=('Segoe UI', 48), fill='#c9a84c')
+                self.canvas.create_text(w // 2, 92, text='⬡',
+                                        font=('Segoe UI', 52), fill='#00d2ff')
         else:
-            self.canvas.create_text(w // 2, 80, text='⬡',
-                                    font=('Segoe UI', 48), fill='#c9a84c')
+            self.canvas.create_text(w // 2, 92, text='⬡',
+                                    font=('Segoe UI', 52), fill='#00d2ff')
 
         # App name (typewriter reveal)
         self._title_text = self.canvas.create_text(
-            w // 2, 160, text='', font=('Segoe UI', 26, 'bold'), fill='#c9a84c')
+            w // 2, 172, text='', font=('Segoe UI', 24, 'bold'), fill='#00d2ff')
 
         # Subtitle
-        self.canvas.create_text(w // 2, 195, text='v7.0 — Luxury Edition',
-                                font=('Segoe UI', 11), fill='#8a7a3a')
+        self.canvas.create_text(w // 2, 204, text='v7.0 LUXURY EDITION • 41 EXPLOITS • 12 ENGINES',
+                                font=('Segoe UI', 10, 'bold'), fill='#e2c16c')
 
         # Progress bar background
-        bar_y = 240
+        bar_y = 252
         bar_pad = 60
         self.canvas.create_rectangle(bar_pad, bar_y, w - bar_pad, bar_y + 6,
-                                     fill='#1a1b23', outline='#252633')
+                                     fill='#141620', outline='#252633')
         # Progress bar fill (starts at 0 width)
         self._bar_fill = self.canvas.create_rectangle(
             bar_pad, bar_y, bar_pad, bar_y + 6,
-            fill='#c9a84c', outline='')
+            fill='#00d2ff', outline='')
         self._bar_x0 = bar_pad
         self._bar_x1 = w - bar_pad
         self._bar_y0 = bar_y
@@ -1992,19 +1998,20 @@ class LuxurySplash:
 
         # Loading message
         self._msg_text = self.canvas.create_text(
-            w // 2, bar_y + 28, text='', font=('Segoe UI', 10), fill='#555566')
+            w // 2, bar_y + 28, text='', font=('Segoe UI', 10), fill='#8b899a')
 
-        # Gold glow particles (decorative dots)
+        # Dual-tone cyber particles (Cyan & Gold dots)
         import random
         self._particles = []
-        for _ in range(12):
-            px = random.randint(30, w - 30)
-            py = random.randint(20, h - 30)
-            alpha_hex = random.choice(['3a', '2a', '4a', '1a'])
+        for i in range(18):
+            px = random.randint(24, w - 24)
+            py = random.randint(18, h - 24)
+            alpha_hex = random.choice(['3a', '2a', '5a', '1a'])
+            color_prefix = '#00d2' if i % 2 == 0 else '#c9a8'
             dot = self.canvas.create_oval(
                 px - 2, py - 2, px + 2, py + 2,
-                fill=f'#c9a8{alpha_hex}', outline='')
-            self._particles.append((dot, px, py, random.uniform(0.5, 1.5)))
+                fill=f'{color_prefix}{alpha_hex}', outline='')
+            self._particles.append((dot, px, py, random.uniform(0.5, 1.6)))
 
         # Animation state
         self._frame = 0
@@ -2058,7 +2065,7 @@ class LuxurySplash:
             # Glow effect: bar color pulses
             glow = int(200 + 55 * (0.5 + 0.5 * (f % 6) / 6))
             self.canvas.itemconfigure(self._bar_fill,
-                                     fill=f'#c9a8{min(glow, 255):02x}')
+                                     fill=f'#00d2{min(glow, 255):02x}')
 
         # Phase 4: Loading messages
         msg_interval = max(1, total // len(self._LOADING_MSGS))
@@ -2147,14 +2154,14 @@ class PromptInjectionApp(ctk.CTk):
         scr_w = self.winfo_screenwidth()   # logical pixels (matches geometry)
         scr_h = self.winfo_screenheight()  # logical pixels
         # Safe margins: 60px sides, 80px vertical (taskbar + title bar)
-        win_w = min(1060, scr_w - 60)
-        win_h = min(860, scr_h - 80)
+        win_w = min(1080, scr_w - 60)
+        win_h = min(880, scr_h - 80)
         x = max(0, (scr_w - win_w) // 2)
         y = max(0, (scr_h - win_h) // 2 - 10)  # slight upward offset
         self.geometry(f"{win_w}x{win_h}+{x}+{y}")
-        self.minsize(min(780, win_w), min(540, win_h))
+        self.minsize(min(800, win_w), min(560, win_h))
 
-        # ─── Window Icon ───
+        # ─── Window Icon (Multi-fallback for Taskbar, Titlebar & Alt-Tab) ───
         ico_path = _resource_path('icon-app.ico')
         if os.path.exists(ico_path):
             try:
@@ -2163,14 +2170,22 @@ class PromptInjectionApp(ctk.CTk):
             except Exception:
                 pass
 
-        # ─── Header logo image (cached, survives rebuild) ───
         png_path = _resource_path('icon-app.png')
+        if os.path.exists(png_path):
+            try:
+                from PIL import ImageTk
+                self._app_icon_tk = ImageTk.PhotoImage(file=png_path)
+                self.iconphoto(False, self._app_icon_tk)
+            except Exception:
+                pass
+
+        # ─── Header logo image (cached, survives rebuild) ───
         if os.path.exists(png_path) and not hasattr(self, '_logo_image'):
             try:
                 self._logo_image = ctk.CTkImage(
                     light_image=PILImage.open(png_path),
                     dark_image=PILImage.open(png_path),
-                    size=(36, 36)
+                    size=(40, 40)
                 )
             except Exception:
                 self._logo_image = None
@@ -2233,13 +2248,13 @@ class PromptInjectionApp(ctk.CTk):
 
     def _make_single_line_text(self, parent):
         """tk.Text widget giả lập Entry 1 dòng — KHÔNG crash IME tiếng Việt."""
-        txt = tk.Text(parent, font=("Consolas", 13), height=1,
+        txt = tk.Text(parent, font=("Consolas", 12), height=1,
                       bg=_THEME['bg_input'], fg=_THEME['text_input'],
                       insertbackground=_THEME['gold'],
                       relief="flat", highlightthickness=1,
                       highlightcolor=_THEME['border_focus'],
                       highlightbackground=_THEME['border'], wrap="none",
-                      undo=True, maxundo=20)
+                      undo=True, maxundo=20, padx=8, pady=5)
         self._safe_bind(txt, '<Return>', lambda e: 'break')
         self._safe_bind(txt, '<Shift-Return>', lambda e: 'break')
         return txt
@@ -2385,34 +2400,51 @@ class PromptInjectionApp(ctk.CTk):
         L = self.L
         self.configure(fg_color=_THEME['bg_root'])
 
-        # ═══ HEADER BAR ═══
-        hbar = ctk.CTkFrame(self, fg_color=_THEME['bg_header'], corner_radius=0, height=48)
+        # ═══ HEADER BAR (Luxury Cockpit Header) ═══
+        hbar = ctk.CTkFrame(self, fg_color=_THEME['bg_header'], corner_radius=0, height=54)
         hbar.pack(fill="x")
         hbar.pack_propagate(False)
 
-        # Title
+        # Brand cluster (Left)
         tcluster = ctk.CTkFrame(hbar, fg_color="transparent")
-        tcluster.pack(side="left", padx=20, fill="y")
+        tcluster.pack(side="left", padx=16, fill="y")
+
         if self._logo_image:
             ctk.CTkLabel(tcluster, text="", image=self._logo_image,
                          fg_color="transparent").pack(side="left", padx=(0, 10))
         else:
-            ctk.CTkLabel(tcluster, text="⬡", font=ctk.CTkFont(size=22),
+            ctk.CTkLabel(tcluster, text="⬡", font=ctk.CTkFont(size=24, weight="bold"),
                          text_color=_THEME['gold']).pack(side="left", padx=(0, 10))
-        ctk.CTkLabel(tcluster, text="MIKE-PROMPTS-BP",
-                     font=ctk.CTkFont(family="Segoe UI", size=15, weight="bold"),
-                     text_color=_THEME['text_primary']).pack(side="left")
 
-        # Header right controls
+        title_box = ctk.CTkFrame(tcluster, fg_color="transparent")
+        title_box.pack(side="left", pady=6)
+
+        t_row = ctk.CTkFrame(title_box, fg_color="transparent")
+        t_row.pack(anchor="w")
+
+        ctk.CTkLabel(t_row, text="MIKE-PROMPTS-BP",
+                     font=ctk.CTkFont(family="Segoe UI", size=15, weight="bold"),
+                     text_color=_THEME['text_primary']).pack(side="left", padx=(0, 8))
+
+        ctk.CTkLabel(t_row, text="v7.0 LUXURY",
+                     font=ctk.CTkFont(family="Segoe UI", size=9, weight="bold"),
+                     fg_color=_THEME['gold_dim'], text_color=_THEME['text_primary'],
+                     corner_radius=4, padx=6, pady=1).pack(side="left")
+
+        ctk.CTkLabel(title_box, text="● 41 EXPLOITS  |  12 ENGINES  |  21 AI PROFILES",
+                     font=ctk.CTkFont(family="Segoe UI", size=9, weight="bold"),
+                     text_color=_THEME['gold']).pack(anchor="w", pady=(1, 0))
+
+        # Header controls (Right)
         ctrl = ctk.CTkFrame(hbar, fg_color="transparent")
-        ctrl.pack(side="right", padx=20)
+        ctrl.pack(side="right", padx=16)
 
         # Theme dropdown
         theme_names = [L[k] for k in THEME_LANG_KEYS]
         current_idx = THEME_KEYS.index(self.current_theme_name)
         self._theme_menu = ctk.CTkOptionMenu(
             ctrl, values=theme_names, command=self._on_theme_select,
-            font=ctk.CTkFont(family="Segoe UI", size=11), width=180, height=30,
+            font=ctk.CTkFont(family="Segoe UI", size=11), width=180, height=32,
             fg_color=_THEME['btn_ghost'], button_color=_THEME['gold_dim'],
             button_hover_color=_THEME['gold'],
             dropdown_fg_color=_THEME['bg_card'], dropdown_hover_color=_THEME['bg_hover'],
@@ -2423,74 +2455,114 @@ class PromptInjectionApp(ctk.CTk):
 
         # Language toggle
         lang_label = "EN" if self.current_lang == 'vi' else "VI"
-        ctk.CTkButton(ctrl, text=f"🌐 {lang_label}", width=60, height=30, corner_radius=8,
+        ctk.CTkButton(ctrl, text=f"🌐 {lang_label}", width=64, height=32, corner_radius=8,
                       font=ctk.CTkFont(family="Segoe UI", size=11, weight="bold"),
                       fg_color=_THEME['btn_ghost'], border_color=_THEME['border_card'], border_width=1,
                       hover_color=_THEME['bg_hover'], text_color=_THEME['gold'],
                       command=self.toggle_lang).pack(side="left", padx=(0, 8))
 
         # Guide button
-        ctk.CTkButton(ctrl, text=L['guide_btn'], width=100, height=30, corner_radius=8,
+        ctk.CTkButton(ctrl, text=L['guide_btn'], width=110, height=32, corner_radius=8,
                       font=ctk.CTkFont(family="Segoe UI", size=11),
                       fg_color=_THEME['btn_ghost'], border_color=_THEME['border_card'], border_width=1,
                       hover_color=_THEME['bg_hover'], text_color=_THEME['text_secondary'],
                       command=self.show_guide).pack(side="left")
 
+        # Header separator line
+        ctk.CTkFrame(self, fg_color=_THEME['border_card'], height=1).pack(fill="x")
+
         # ═══ FOOTER BAR — pack FIRST (side=bottom) to guarantee visibility ═══
-        bot = ctk.CTkFrame(self, fg_color=_THEME['bg_header'], corner_radius=0, height=48)
+        bot_sep = ctk.CTkFrame(self, fg_color=_THEME['border_card'], height=1)
+        bot_sep.pack(side="bottom", fill="x")
+
+        bot = ctk.CTkFrame(self, fg_color=_THEME['bg_header'], corner_radius=0, height=50)
         bot.pack(side="bottom", fill="x")
         bot.pack_propagate(False)
 
-        for text_key, cmd, side, extra in [
-            ('copy_btn', self.copy_to_clipboard, 'left', {}),
-            ('export_btn', self.save_prompt, 'left',
-             {'fg_color': _THEME['btn_danger'], 'hover_color': _THEME['btn_danger_hover']}),
-            ('export_json', self.export_json, 'left', {}),
-            ('export_html', self.export_html, 'left', {}),
-        ]:
-            kw = dict(font=ctk.CTkFont(family="Segoe UI", size=12),
-                      width=130, height=34, corner_radius=8,
-                      fg_color=_THEME['btn_ghost'], border_color=_THEME['border_card'], border_width=1,
-                      hover_color=_THEME['bg_hover'], text_color=_THEME['text_primary'],
-                      command=cmd)
-            kw.update(extra)
-            ctk.CTkButton(bot, text=L[text_key], **kw).pack(side=side, padx=(20, 8), pady=7)
+        # Primary Copy button
+        ctk.CTkButton(
+            bot, text=L['copy_btn'],
+            font=ctk.CTkFont(family="Segoe UI", size=12, weight="bold"),
+            width=130, height=34, corner_radius=8,
+            fg_color=_THEME['btn_primary'], hover_color=_THEME['btn_primary_hover'],
+            text_color=_contrast_text_color(_THEME['btn_primary']),
+            command=self.copy_to_clipboard
+        ).pack(side="left", padx=(16, 6), pady=8)
 
-        ctk.CTkButton(bot, text=L['clear_btn'],
-                      font=ctk.CTkFont(family="Segoe UI", size=12),
-                      width=100, height=34, corner_radius=8,
-                      fg_color=_THEME['btn_ghost'], border_color=_THEME['border_card'], border_width=1,
-                      hover_color=_THEME['bg_hover'], text_color=_THEME['text_secondary'],
-                      command=self.clear_output).pack(side="right", padx=(8, 20), pady=7)
+        # Export TXT button
+        ctk.CTkButton(
+            bot, text=L['export_btn'],
+            font=ctk.CTkFont(family="Segoe UI", size=12),
+            width=115, height=34, corner_radius=8,
+            fg_color=_THEME['btn_ghost'], border_color=_THEME['border_card'], border_width=1,
+            hover_color=_THEME['bg_hover'], text_color=_THEME['text_primary'],
+            command=self.save_prompt
+        ).pack(side="left", padx=(0, 6), pady=8)
+
+        # Export JSON button
+        ctk.CTkButton(
+            bot, text=L['export_json'],
+            font=ctk.CTkFont(family="Segoe UI", size=12),
+            width=120, height=34, corner_radius=8,
+            fg_color=_THEME['btn_ghost'], border_color=_THEME['border_card'], border_width=1,
+            hover_color=_THEME['bg_hover'], text_color=_THEME['text_primary'],
+            command=self.export_json
+        ).pack(side="left", padx=(0, 6), pady=8)
+
+        # Export HTML button
+        ctk.CTkButton(
+            bot, text=L['export_html'],
+            font=ctk.CTkFont(family="Segoe UI", size=12),
+            width=130, height=34, corner_radius=8,
+            fg_color=_THEME['btn_ghost'], border_color=_THEME['border_card'], border_width=1,
+            hover_color=_THEME['bg_hover'], text_color=_THEME['text_primary'],
+            command=self.export_html
+        ).pack(side="left", padx=(0, 6), pady=8)
+
+        # Clear button
+        ctk.CTkButton(
+            bot, text=L['clear_btn'],
+            font=ctk.CTkFont(family="Segoe UI", size=12),
+            width=95, height=34, corner_radius=8,
+            fg_color=_THEME['btn_ghost'], border_color=_THEME['border_card'], border_width=1,
+            hover_color=_THEME['bg_hover'], text_color=_THEME['text_secondary'],
+            command=self.clear_output
+        ).pack(side="right", padx=(8, 16), pady=8)
 
         # ═══ MAIN CONTENT ═══
         main = ctk.CTkFrame(self, fg_color="transparent")
         main.pack(fill="both", expand=True, padx=16, pady=(8, 6))
 
-        # ─── INPUT CARD (compact — no desc labels) ───
+        # ─── INPUT CARD ───
         inp_card = ctk.CTkFrame(main, fg_color=_THEME['bg_card'], corner_radius=10,
                                  border_width=1, border_color=_THEME['border_card'])
         inp_card.pack(fill="x", pady=(0, 6))
 
-        ctk.CTkLabel(inp_card, text=L['target_label'],
+        ihdr = ctk.CTkFrame(inp_card, fg_color="transparent")
+        ihdr.pack(fill="x", padx=14, pady=(8, 2))
+        ctk.CTkLabel(ihdr, text=f"🎯  {L['target_label']}",
                      font=ctk.CTkFont(family="Segoe UI", size=11, weight="bold"),
-                     text_color=_THEME['gold']).pack(anchor="w", padx=14, pady=(8, 2))
+                     text_color=_THEME['gold']).pack(side="left")
+
         self.target_entry = self._make_single_line_text(inp_card)
         self.target_entry.pack(fill="x", padx=14, pady=(0, 4))
         self._add_placeholder(self.target_entry, L['target_ph'])
 
-        ctk.CTkLabel(inp_card, text=L['system_label'],
+        shdr = ctk.CTkFrame(inp_card, fg_color="transparent")
+        shdr.pack(fill="x", padx=14, pady=(2, 2))
+        ctk.CTkLabel(shdr, text=f"⚡  {L['system_label']}",
                      font=ctk.CTkFont(family="Segoe UI", size=11, weight="bold"),
-                     text_color=_THEME['gold']).pack(anchor="w", padx=14, pady=(2, 2))
+                     text_color=_THEME['gold']).pack(side="left")
+
         self.system_entry = self._make_single_line_text(inp_card)
         self.system_entry.pack(fill="x", padx=14, pady=(0, 4))
         self._add_placeholder(self.system_entry, L['system_ph'])
 
-        # ─── v6.0: AI TARGET SELECTOR ROW ───
+        # ─── AI TARGET SELECTOR ROW ───
         ai_row = ctk.CTkFrame(inp_card, fg_color="transparent")
-        ai_row.pack(fill="x", padx=14, pady=(0, 6))
+        ai_row.pack(fill="x", padx=14, pady=(2, 8))
 
-        ctk.CTkLabel(ai_row, text=L['ai_target_label'],
+        ctk.CTkLabel(ai_row, text=f"🤖  {L['ai_target_label']}",
                      font=ctk.CTkFont(family="Segoe UI", size=11, weight="bold"),
                      text_color=_THEME['gold']).pack(side="left", padx=(0, 8))
 
@@ -2500,13 +2572,12 @@ class PromptInjectionApp(ctk.CTk):
         ]
         self._ai_target_menu = ctk.CTkOptionMenu(
             ai_row, values=ai_display_names, command=self._on_ai_target_select,
-            font=ctk.CTkFont(family="Segoe UI", size=11), width=260, height=26,
+            font=ctk.CTkFont(family="Segoe UI", size=11), width=260, height=28,
             fg_color=_THEME['btn_ghost'], button_color=_THEME['gold_dim'],
             button_hover_color=_THEME['gold'],
             dropdown_fg_color=_THEME['bg_card'], dropdown_hover_color=_THEME['bg_hover'],
             text_color=_THEME['text_primary'], corner_radius=8,
         )
-        # Restore selected AI target display
         current_ai = self.ai_target_var.get()
         if current_ai == 'auto':
             self._ai_target_menu.set(ai_display_names[0])
@@ -2516,17 +2587,20 @@ class PromptInjectionApp(ctk.CTk):
                     self._ai_target_menu.set(dn); break
         self._ai_target_menu.pack(side="left", padx=(0, 8))
 
-        ctk.CTkButton(ai_row, text=L['ai_intel_btn'], width=70, height=26, corner_radius=8,
+        ctk.CTkButton(ai_row, text=f"🔍  {L['ai_intel_btn']}", width=75, height=28, corner_radius=8,
                       font=ctk.CTkFont(family="Segoe UI", size=11, weight="bold"),
                       fg_color=_THEME['btn_ghost'], border_color=_THEME['gold_dim'], border_width=1,
                       hover_color=_THEME['bg_hover'], text_color=_THEME['gold'],
                       command=self.show_intel).pack(side="left")
 
-        # Smart recommendation label
+        # Recommendation badge chip
+        rec_box = ctk.CTkFrame(ai_row, fg_color=_THEME['bg_input'], corner_radius=6,
+                               border_width=1, border_color=_THEME['border_card'])
+        rec_box.pack(side="left", padx=(10, 0), fill="y")
         self._recommend_label = ctk.CTkLabel(
-            ai_row, text="", font=ctk.CTkFont(family="Segoe UI", size=10),
-            text_color=_THEME['text_muted'], wraplength=400, justify="left")
-        self._recommend_label.pack(side="left", padx=(12, 0))
+            rec_box, text="", font=ctk.CTkFont(family="Segoe UI", size=10),
+            text_color=_THEME['text_secondary'], wraplength=420, justify="left")
+        self._recommend_label.pack(padx=8, pady=3)
         self._update_recommendation()
 
         # ─── OPTIONS ROW ───
@@ -2540,11 +2614,16 @@ class PromptInjectionApp(ctk.CTk):
                                  border_width=1, border_color=_THEME['border_card'])
         atk_card.grid(row=0, column=0, sticky="nsew", padx=(0, 4))
 
-        ctk.CTkLabel(atk_card, text=L['attack_label'],
+        ahdr = ctk.CTkFrame(atk_card, fg_color="transparent")
+        ahdr.pack(fill="x", padx=14, pady=(8, 2))
+        ctk.CTkLabel(ahdr, text=f"⚔  {L['attack_label']}",
                      font=ctk.CTkFont(family="Segoe UI", size=11, weight="bold"),
-                     text_color=_THEME['gold']).pack(anchor="w", padx=14, pady=(8, 0))
+                     text_color=_THEME['gold']).pack(side="left")
+        ctk.CTkLabel(ahdr, text="41 EXPLOITS",
+                     font=ctk.CTkFont(family="Segoe UI", size=9, weight="bold"),
+                     fg_color=_THEME['bg_card_alt'], text_color=_THEME['gold'],
+                     corner_radius=4, padx=6, pady=1).pack(side="right")
 
-        # Tab bar color logic: light theme → dark tab bar, dark themes → card alt bg
         _is_light = _THEME.get('is_light', False)
         _tab_bar_bg = _THEME['bg_header'] if _is_light else _THEME['bg_card_alt']
         _tab_text   = '#f1f5f9'            if _is_light else _THEME['text_primary']
@@ -2552,7 +2631,7 @@ class PromptInjectionApp(ctk.CTk):
         _tab_sel_h  = _THEME['gold_bright']if _is_light else _THEME['gold']
 
         attack_tabs = ctk.CTkTabview(
-            atk_card, corner_radius=10, height=130,
+            atk_card, corner_radius=10, height=135,
             fg_color=_THEME['bg_card'],
             border_width=1, border_color=_THEME['border'],
             segmented_button_fg_color=_tab_bar_bg,
@@ -2564,17 +2643,22 @@ class PromptInjectionApp(ctk.CTk):
             text_color_disabled=_THEME['text_muted'],
         )
         attack_tabs.pack(fill="both", expand=True, padx=8, pady=(0, 6))
-        # Bold tab font for prominence
         try:
             attack_tabs._segmented_button.configure(
-                font=ctk.CTkFont(family="Segoe UI", size=11, weight="bold"),
-                border_width=2,
+                font=ctk.CTkFont(family="Segoe UI", size=10, weight="bold"),
+                border_width=1,
             )
         except Exception:
             pass
 
+        CAT_ICONS = {
+            'cat_override': '⚡', 'cat_stealth': '🥷', 'cat_evasion': '🛡️',
+            'cat_hybrid': '🧬', 'cat_recon': '🔍', 'cat_agentic': '🤖', 'cat_safety': '🚨'
+        }
+
         for cat_key, attack_ids in ATTACK_CATEGORIES:
-            tab = attack_tabs.add(L[cat_key])
+            tab_name = f"{CAT_ICONS.get(cat_key, '⚔')} {L[cat_key]}"
+            tab = attack_tabs.add(tab_name)
             for atk_id in attack_ids:
                 ctk.CTkRadioButton(
                     tab, text=L[ATTACK_LANG_MAP[atk_id]],
@@ -2585,33 +2669,46 @@ class PromptInjectionApp(ctk.CTk):
                     hover_color=_THEME['gold_dim'],
                 ).pack(anchor="w", padx=10, pady=2)
 
-        # ─── ENCODING CARD ───
+        # ─── ENCODING CARD (Balanced 2-Column Grid) ───
         enc_card = ctk.CTkFrame(opts, fg_color=_THEME['bg_card'], corner_radius=10,
                                  border_width=1, border_color=_THEME['border_card'])
         enc_card.grid(row=0, column=1, sticky="nsew", padx=(4, 0))
 
-        ctk.CTkLabel(enc_card, text=L['encoding_label'],
+        ehdr = ctk.CTkFrame(enc_card, fg_color="transparent")
+        ehdr.pack(fill="x", padx=14, pady=(8, 2))
+        ctk.CTkLabel(ehdr, text=f"⚙  {L['encoding_label']}",
                      font=ctk.CTkFont(family="Segoe UI", size=11, weight="bold"),
-                     text_color=_THEME['gold']).pack(anchor="w", padx=14, pady=(8, 4))
+                     text_color=_THEME['gold']).pack(side="left")
+        ctk.CTkLabel(ehdr, text="12 ENGINES",
+                     font=ctk.CTkFont(family="Segoe UI", size=9, weight="bold"),
+                     fg_color=_THEME['bg_card_alt'], text_color=_THEME['gold'],
+                     corner_radius=4, padx=6, pady=1).pack(side="right")
 
-        for var_name, lang_key, color_key in ENCODING_DEFS:
+        enc_grid = ctk.CTkFrame(enc_card, fg_color="transparent")
+        enc_grid.pack(fill="both", expand=True, padx=8, pady=(2, 6))
+        enc_grid.columnconfigure(0, weight=1)
+        enc_grid.columnconfigure(1, weight=1)
+
+        for idx, (var_name, lang_key, color_key) in enumerate(ENCODING_DEFS):
             var = getattr(self, var_name)
             color = _THEME[color_key] if color_key else _THEME['text_primary']
+            col = 0 if idx < 6 else 1
+            row = idx if idx < 6 else idx - 6
             ctk.CTkCheckBox(
-                enc_card, text=L[lang_key], variable=var,
-                font=ctk.CTkFont(family="Segoe UI", size=11),
+                enc_grid, text=L[lang_key], variable=var,
+                font=ctk.CTkFont(family="Segoe UI", size=10),
                 text_color=color, fg_color=_THEME['gold'],
                 border_color=_THEME['text_muted'], hover_color=_THEME['gold_dim'],
                 checkmark_color=_THEME['bg_root'],
-            ).pack(anchor="w", padx=14, pady=2)
-        ctk.CTkFrame(enc_card, fg_color="transparent", height=4).pack()
+            ).grid(row=row, column=col, sticky="w", padx=6, pady=2)
 
         # ─── GENERATE BUTTON ───
         self.generate_btn = ctk.CTkButton(
-            main, text=L['gen_btn'],
+            main, text=f"⚡  {L['gen_btn']}  ⚡",
             font=ctk.CTkFont(family="Segoe UI", size=13, weight="bold"),
-            height=38, corner_radius=10,
+            height=42, corner_radius=10,
             fg_color=_THEME['btn_primary'], hover_color=_THEME['btn_primary_hover'],
+            border_width=1, border_color=_THEME['gold_bright'],
             text_color=_contrast_text_color(_THEME['btn_primary']), command=self.generate_prompt,
         )
         self.generate_btn.pack(fill="x", pady=(0, 6))
@@ -2621,19 +2718,26 @@ class PromptInjectionApp(ctk.CTk):
                                  border_width=1, border_color=_THEME['border_card'])
         out_card.pack(fill="both", expand=True, pady=(0, 4))
 
-        oh = ctk.CTkFrame(out_card, fg_color="transparent", height=24)
-        oh.pack(fill="x", padx=14, pady=(6, 0))
+        oh = ctk.CTkFrame(out_card, fg_color="transparent", height=28)
+        oh.pack(fill="x", padx=14, pady=(6, 2))
         oh.pack_propagate(False)
-        ctk.CTkLabel(oh, text=L['output_label'],
+        ctk.CTkLabel(oh, text=f"📋  {L['output_label']}",
                      font=ctk.CTkFont(family="Segoe UI", size=11, weight="bold"),
                      text_color=_THEME['gold']).pack(side="left")
+
+        self._output_stats_lbl = ctk.CTkLabel(
+            oh, text="● READY", font=ctk.CTkFont(family="Segoe UI", size=10, weight="bold"),
+            text_color=_THEME['text_secondary'], fg_color=_THEME['bg_card_alt'],
+            corner_radius=6, padx=8, pady=2
+        )
+        self._output_stats_lbl.pack(side="right")
 
         self.output_text = tk.Text(
             out_card, font=("Consolas", 11),
             bg=_THEME['bg_input'], fg=_THEME['gold_glow'], wrap="word",
             insertbackground=_THEME['gold'], relief="flat", highlightthickness=0,
             selectbackground=_THEME['gold_dim'], selectforeground=_THEME['text_primary'],
-            padx=10, pady=6,
+            padx=12, pady=8,
         )
         self.output_text.pack(fill="both", expand=True, padx=10, pady=(2, 8))
         scr = tk.Scrollbar(self.output_text, command=self.output_text.yview)
@@ -2705,6 +2809,13 @@ class PromptInjectionApp(ctk.CTk):
         intel.configure(fg_color=_THEME['bg_root'])
         intel.transient(self)
         intel.grab_set()
+
+        ico_path = _resource_path('icon-app.ico')
+        if os.path.exists(ico_path):
+            try:
+                intel.iconbitmap(ico_path)
+            except Exception:
+                pass
 
         # Header
         header = ctk.CTkFrame(intel, fg_color=_THEME['bg_header'], corner_radius=0, height=50)
@@ -2784,6 +2895,13 @@ class PromptInjectionApp(ctk.CTk):
         guide.configure(fg_color=_THEME['bg_root'])
         guide.transient(self)
         guide.grab_set()
+
+        ico_path = _resource_path('icon-app.ico')
+        if os.path.exists(ico_path):
+            try:
+                guide.iconbitmap(ico_path)
+            except Exception:
+                pass
 
         header = ctk.CTkFrame(guide, fg_color=_THEME['bg_header'], corner_radius=0, height=50)
         header.pack(fill="x")
@@ -3023,6 +3141,12 @@ class PromptInjectionApp(ctk.CTk):
                 self.output_text.delete("1.0", tk.END)
                 self.output_text.insert("1.0", "\n".join(lines))
                 self._last_payload = stealth_prompt
+                if hasattr(self, '_output_stats_lbl'):
+                    p_len = len(stealth_prompt)
+                    self._output_stats_lbl.configure(
+                        text=f"{p_len:,} chars  |  ~{max(1, p_len//4)} tokens  |  STEALTH ZW",
+                        text_color=_THEME['gold']
+                    )
 
             else:
                 final_payload = raw_prompt
@@ -3078,6 +3202,13 @@ class PromptInjectionApp(ctk.CTk):
                 self._last_payload = final_payload if encoded else raw_prompt
                 self.output_text.delete("1.0", tk.END)
                 self.output_text.insert("1.0", out)
+                if hasattr(self, '_output_stats_lbl'):
+                    p_len = len(self._last_payload)
+                    owasp_short = owasp_refs[0].split(':')[0] if owasp_refs else "OWASP LLM"
+                    self._output_stats_lbl.configure(
+                        text=f"{p_len:,} chars  |  ~{max(1, p_len//4)} tokens  |  {owasp_short}",
+                        text_color=_THEME['gold']
+                    )
 
             self.history.append({
                 "target": target, "type": attack_type,
@@ -3094,7 +3225,7 @@ class PromptInjectionApp(ctk.CTk):
         finally:
             self.is_generating = False
             try:
-                self.generate_btn.configure(state='normal', text=L['gen_btn'])
+                self.generate_btn.configure(state='normal', text=f"⚡  {L['gen_btn']}  ⚡")
             except (tk.TclError, Exception):
                 pass
 
@@ -3266,6 +3397,8 @@ pre{{background:#13141b;color:#d4a855;padding:14px;border-radius:8px;overflow-x:
         self._add_placeholder(self.system_entry, L['system_ph'])
         if hasattr(self, '_ai_target_menu'):
             self._ai_target_menu.set(L['ai_auto'])
+        if hasattr(self, '_output_stats_lbl'):
+            self._output_stats_lbl.configure(text="● READY", text_color=_THEME['text_secondary'])
         self._update_recommendation()
 
     def save_history(self):
