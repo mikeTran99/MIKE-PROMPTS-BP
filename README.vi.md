@@ -8,11 +8,13 @@
   <img src="docs/screenshots/03-logo.jpg" width="200" alt="MIKE-PROMPTS-BP Logo">
 </p>
 
-![Giao diện chính](docs/screenshots/01-main-ui.png)
+![Screenshot 1](docs/screenshots/screenshot-1.png)
 
-![Kết quả Payload](docs/screenshots/02-payload-output.png)
+![Screenshot 2](docs/screenshots/screenshot-2.png)
 
-![Giao diện toàn màn hình](docs/screenshots/04-main-ui-fullscreen.png)
+![Screenshot 3](docs/screenshots/screenshot-3.png)
+
+![Screenshot 4](docs/screenshots/screenshot-4.png)
 
 ## ⚠️ Tuyên bố miễn trừ
 

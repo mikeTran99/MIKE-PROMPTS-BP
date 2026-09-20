@@ -8,11 +8,13 @@
   <img src="docs/screenshots/03-logo.jpg" width="200" alt="MIKE-PROMPTS-BP Logo">
 </p>
 
-![Main UI](docs/screenshots/01-main-ui.png)
+![Screenshot 1](docs/screenshots/screenshot-1.png)
 
-![Payload Output](docs/screenshots/02-payload-output.png)
+![Screenshot 2](docs/screenshots/screenshot-2.png)
 
-![Fullscreen UI](docs/screenshots/04-main-ui-fullscreen.png)
+![Screenshot 3](docs/screenshots/screenshot-3.png)
+
+![Screenshot 4](docs/screenshots/screenshot-4.png)
 
 ## ⚠️ Disclaimer
 
