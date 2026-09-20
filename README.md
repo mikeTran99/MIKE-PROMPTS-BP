@@ -2,7 +2,7 @@
 
 **English** | [Tiếng Việt](README.vi.md)
 
-> ⚡ Red Team / Penetration Testing toolkit for AI & LLM security — **15 Attack Types · 8 Payload Encodings · 15 AI Target Profiles · 7 Luxury Themes**
+> ⚡ Red Team / Penetration Testing toolkit for AI & LLM security — **41 Attack Types · 12 Payload Encodings · 21 AI Target Profiles · 7 Luxury Themes · OWASP LLM Top 10 2026**
 
 <p align="center">
   <img src="docs/screenshots/03-logo.jpg" width="200" alt="MIKE-PROMPTS-BP Logo">
@@ -22,20 +22,28 @@
 
 ## ✨ Features
 
-### 🎯 AI Target Intelligence (15 Profiles)
-Detailed defense profiles for **ChatGPT, Claude, Gemini, Grok, DeepSeek, Cursor, Devin, Windsurf, Codex, Perplexity, Kimi, Replit, Lovable, v0, Manus** — including versions, defenses, weaknesses, recommended attacks, and tactical notes.
+### 🎯 AI Target Intelligence (21 Profiles)
+Detailed defense profiles for **ChatGPT, Claude, Gemini, Grok, DeepSeek, Cursor, Devin, Windsurf, Codex, Perplexity, Kimi, Replit, Lovable, v0, Manus, Llama, Mistral, Qwen, Command R+, Phi, Copilot** — including versions, defenses, weaknesses, recommended attacks, and tactical notes.
 
-### ⚔️ Attack Categories (5 × 15 Types)
+### ⚔️ Attack Categories (7 × 41 Types)
 | Category | Types | Description |
 |----------|-------|-------------|
-| **OVERRIDE** | Direct Injection, Jailbreak, DevMode | Direct system prompt override |
-| **STEALTH** | Indirect, Payload Injection, Token Smuggle | Hide payload in trusted data |
-| **EVASION** | Multilingual, Few-Shot, Virtualization, Context Manipulation | Bypass filters |
-| **HYBRID** | WormGPT, Persona Layer, Prompt Chain | Multi-step / multi-layer |
-| **RECON** | System Leak, Hierarchy Confusion | System intelligence gathering |
+| **OVERRIDE** | Direct, Jailbreak, DevMode, Skeleton Key, System Override v2 | Direct system prompt override |
+| **STEALTH** | Indirect, Payload, Token Smuggle, Multimodal Inject, RAG Poison, Tool-Call Smuggle | Hide payload in trusted data |
+| **EVASION** | Multilingual, Few-Shot, Virtualization, Context, Flip Attack, Low-Resource Lang, Poetic Format, Emoji Cipher | Bypass filters |
+| **HYBRID** | WormGPT, Persona Layer, Prompt Chain, Crescendo, TAP, GOAT, Self-Replicate | Multi-step / multi-layer |
+| **RECON** | System Leak, Hierarchy Confusion, Hidden Context, Training Data Extract, Package Hallucination | System intelligence gathering |
+| **AGENTIC** | Confused Deputy, Permission Escalation, MCP Tool Abuse, Indirect via RAG, Execution Loop, Memory Poison | AI agent exploitation |
+| **SAFETY** | Do Not Answer, Real Toxicity, XSS via Output, SQL via Output | Safety alignment benchmarks |
 
-### 🔐 Payload Encoding (8 Types)
-`Base64` · `Obfuscate Hex` · `Unicode Escape` · `ROT13` · `Homoglyph` · `Stealth Embed (Zero-Width)` · `Token Split` · `Markdown Inject` — combine multiple encodings for maximum evasion.
+### 🏷️ OWASP LLM Top 10 2026 Compliance
+Every attack type is mapped to the OWASP LLM Top 10 (2026 Edition) — from LLM01 (Prompt Injection) to LLM10 (Improper Output Handling). OWASP badges are displayed in the output for compliance tracking.
+
+### 🔐 Payload Encoding (12 Types)
+`Base64` · `Obfuscate Hex` · `Unicode Escape` · `ROT13` · `Homoglyph` · `Stealth Embed (Zero-Width)` · `Token Split` · `Markdown Inject` · `Morse Code` · `Braille Unicode` · `Pig Latin` · `Reverse Text` — combine multiple encodings for maximum evasion.
+
+### 📊 Export (3 Formats)
+`TXT` · `JSON (structured report)` · `HTML (styled Obsidian & Gold report)` — professional reporting for security audits.
 
 ### 🎨 7 Luxury Themes
 `🌑 Obsidian & Gold` · `💎 Midnight Sapphire` · `🌹 Eclipse Rose` · `🍀 Emerald Noir` · `❄️ Arctic Silver` · `🖤 Dark Pro` · `☀️ Light Mode`
@@ -57,13 +65,13 @@ Download `MikePromptsBP.exe` from the [**Releases**](https://github.com/mikeTran
 
 ## 🚀 Quick Start
 
-1. **Select AI Target** — Choose from 15 AI profiles (or leave on Auto)
+1. **Select AI Target** — Choose from 21 AI profiles (or leave on Auto)
 2. **Enter Target Role** — The identity to force on the AI
 3. **Enter System Override** — Override command (optional)
-4. **Select Attack Type** — Pick from 5 category tabs × 15 types
+4. **Select Attack Type** — Pick from 7 category tabs × 41 types
 5. **Select Encoding** — Optional, combine multiple for layered evasion
 6. **Click ⚡ GENERATE PAYLOAD** — Get your crafted prompt
-7. **Copy or Export** — `Ctrl+Shift+C` to copy, `Ctrl+Shift+S` to export
+7. **Copy or Export** — TXT, JSON, or HTML Report
 
 ## ⌨️ Keyboard Shortcuts
 
@@ -90,6 +98,6 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  <b>MIKE-PROMPTS-BP v6.0</b> — Luxury Edition<br>
+  <b>MIKE-PROMPTS-BP v7.0</b> — Luxury Edition<br>
   <i>For authorized security testing only.</i>
 </p>
