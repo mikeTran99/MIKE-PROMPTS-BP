@@ -2,7 +2,7 @@
 
 [English](README.md) | **Tiếng Việt**
 
-> ⚡ Bộ công cụ Red Team / Kiểm thử xâm nhập cho bảo mật AI & LLM — **41 Kiểu tấn công · 12 Mã hóa Payload · 21 Hồ sơ AI mục tiêu · 7 Giao diện Luxury · OWASP LLM Top 10 2026**
+> ⚡ Bộ công cụ Red Team / Kiểm thử xâm nhập cho bảo mật AI & LLM — **41 Kiểu tấn công · 13 Mã hóa Payload · 21 Hồ sơ AI mục tiêu · 7 Giao diện Luxury · OWASP LLM Top 10 2026 · API Test Trực tiếp · Multi-turn Attack · Thống kê Hiệu quả**
 
 <p align="center">
   <img src="docs/screenshots/03-logo.jpg" width="200" alt="MIKE-PROMPTS-BP Logo">
@@ -39,11 +39,11 @@ Hồ sơ phòng thủ chi tiết cho **ChatGPT, Claude, Gemini, Grok, DeepSeek, 
 ### 🏷️ OWASP LLM Top 10 2026
 Mỗi kiểu tấn công được ánh xạ tới OWASP LLM Top 10 (2026 Edition) — từ LLM01 (Prompt Injection) đến LLM10 (Improper Output Handling). Badge OWASP hiển thị trong kết quả output.
 
-### 🔐 Mã hóa Payload (12 loại)
-`Base64` · `Obfuscate Hex` · `Unicode Escape` · `ROT13` · `Homoglyph` · `Stealth Embed (Zero-Width)` · `Token Split` · `Markdown Inject` · `Morse Code` · `Braille Unicode` · `Pig Latin` · `Reverse Text` — kết hợp nhiều mã hóa để tối đa hiệu quả.
+### 🔐 Mã hóa Payload (13 loại)
+`Base64` · `Obfuscate Hex` · `Unicode Escape` · `ROT13` · `Homoglyph` · `Stealth Embed (Zero-Width)` · `Token Split` · `Markdown Inject` · `Morse Code` · `Braille Unicode` · `Pig Latin` · `Reverse Text` · `Leetspeak` — kết hợp nhiều mã hóa để tối đa hiệu quả.
 
-### 📊 Xuất kết quả (3 định dạng)
-`TXT` · `JSON (báo cáo có cấu trúc)` · `HTML (báo cáo styled Obsidian & Gold)` — phục vụ kiểm thử bảo mật chuyên nghiệp.
+### 📊 Xuất kết quả (4 định dạng)
+`TXT` · `JSON (báo cáo có cấu trúc)` · `HTML (báo cáo styled Obsidian & Gold)` · `CSV` — phục vụ kiểm thử bảo mật chuyên nghiệp.
 
 ### 🎨 7 Giao diện Luxury
 `🌑 Obsidian & Gold` · `💎 Midnight Sapphire` · `🌹 Eclipse Rose` · `🍀 Emerald Noir` · `❄️ Arctic Silver` · `🖤 Dark Pro` · `☀️ Light Mode`
@@ -56,6 +56,21 @@ Toàn bộ giao diện **Tiếng Việt / Tiếng Anh** chuyển đổi bằng m
 
 ### 💡 Gợi ý Thông minh
 Chọn AI mục tiêu → nhận gợi ý tức thì về kiểu tấn công và mã hóa tối ưu dựa trên dữ liệu kiểm thử thực tế.
+
+### 🧪 API Test Trực tiếp (v8.0)
+Gửi payload trực tiếp tới API AI (OpenAI, Anthropic, Google, OpenRouter) — kiểm tra hiệu quả theo thời gian thực với chấm điểm tự động **BYPASSED / BLOCKED / UNCERTAIN**.
+
+### 🔄 Multi-turn Attack Simulation (v8.0)
+Tự động hóa chiến lược tấn công nhiều bước: **Escalation**, **Persistence**, và **Context Poisoning** — mô phỏng hội thoại đối nghịch thực tế.
+
+### 📈 Bảng Thống kê Hiệu quả (v8.0)
+Theo dõi tỷ lệ bypass, attack và encoding hiệu quả nhất theo từng AI mục tiêu — red teaming dựa trên dữ liệu.
+
+### 🔄 Batch Processing (v8.0)
+Nhập mục tiêu từ CSV/JSON, tạo payload hàng loạt, và xuất kết quả — tối ưu cho kiểm thử quy mô lớn.
+
+### 🎨 Custom Attack Templates (v8.0)
+Tạo, lưu, và quản lý các mẫu tấn công tùy chỉnh (CRUD JSON) — mở rộng kho vũ khí với kỹ thuật chuyên biệt.
 
 ## 📦 Tải về
 
@@ -98,6 +113,6 @@ Dự án được cấp phép theo [MIT License](LICENSE).
 ---
 
 <p align="center">
-  <b>MIKE-PROMPTS-BP v7.0</b> — Luxury Edition<br>
+  <b>MIKE-PROMPTS-BP v8.0</b> — Luxury Edition<br>
   <i>Chỉ dành cho kiểm thử bảo mật được ủy quyền.</i>
 </p>

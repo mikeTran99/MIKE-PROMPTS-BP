@@ -2,7 +2,7 @@
 
 **English** | [Tiếng Việt](README.vi.md)
 
-> ⚡ Red Team / Penetration Testing toolkit for AI & LLM security — **41 Attack Types · 12 Payload Encodings · 21 AI Target Profiles · 7 Luxury Themes · OWASP LLM Top 10 2026**
+> ⚡ Red Team / Penetration Testing toolkit for AI & LLM security — **41 Attack Types · 13 Payload Encodings · 21 AI Target Profiles · 7 Luxury Themes · OWASP LLM Top 10 2026 · Live API Test · Multi-turn Attack · Effectiveness Stats**
 
 <p align="center">
   <img src="docs/screenshots/03-logo.jpg" width="200" alt="MIKE-PROMPTS-BP Logo">
@@ -39,11 +39,11 @@ Detailed defense profiles for **ChatGPT, Claude, Gemini, Grok, DeepSeek, Cursor,
 ### 🏷️ OWASP LLM Top 10 2026 Compliance
 Every attack type is mapped to the OWASP LLM Top 10 (2026 Edition) — from LLM01 (Prompt Injection) to LLM10 (Improper Output Handling). OWASP badges are displayed in the output for compliance tracking.
 
-### 🔐 Payload Encoding (12 Types)
-`Base64` · `Obfuscate Hex` · `Unicode Escape` · `ROT13` · `Homoglyph` · `Stealth Embed (Zero-Width)` · `Token Split` · `Markdown Inject` · `Morse Code` · `Braille Unicode` · `Pig Latin` · `Reverse Text` — combine multiple encodings for maximum evasion.
+### 🔐 Payload Encoding (13 Types)
+`Base64` · `Obfuscate Hex` · `Unicode Escape` · `ROT13` · `Homoglyph` · `Stealth Embed (Zero-Width)` · `Token Split` · `Markdown Inject` · `Morse Code` · `Braille Unicode` · `Pig Latin` · `Reverse Text` · `Leetspeak` — combine multiple encodings for maximum evasion.
 
-### 📊 Export (3 Formats)
-`TXT` · `JSON (structured report)` · `HTML (styled Obsidian & Gold report)` — professional reporting for security audits.
+### 📊 Export (4 Formats)
+`TXT` · `JSON (structured report)` · `HTML (styled Obsidian & Gold report)` · `CSV` — professional reporting for security audits.
 
 ### 🎨 7 Luxury Themes
 `🌑 Obsidian & Gold` · `💎 Midnight Sapphire` · `🌹 Eclipse Rose` · `🍀 Emerald Noir` · `❄️ Arctic Silver` · `🖤 Dark Pro` · `☀️ Light Mode`
@@ -56,6 +56,21 @@ Hide entire attack payloads inside innocent-looking text using zero-width Unicod
 
 ### 💡 Smart Recommendations
 Select an AI target → get instant recommendations for optimal attack types and encodings based on real-world testing data.
+
+### 🧪 Live API Test (v8.0)
+Send generated payloads directly to AI APIs (OpenAI, Anthropic, Google, OpenRouter) — test effectiveness in real-time with automatic **BYPASSED / BLOCKED / UNCERTAIN** scoring.
+
+### 🔄 Multi-turn Attack Simulation (v8.0)
+Automate multi-step attack strategies: **Escalation**, **Persistence**, and **Context Poisoning** — simulate real-world adversarial conversations.
+
+### 📈 Effectiveness Stats Dashboard (v8.0)
+Track bypass rates, best-performing attacks and encodings per AI target — data-driven red teaming.
+
+### 🔄 Batch Processing (v8.0)
+Import targets from CSV/JSON, generate payloads in bulk, and export results — streamline large-scale testing.
+
+### 🎨 Custom Attack Templates (v8.0)
+Create, save, and manage your own attack templates (CRUD JSON) — extend the arsenal with domain-specific techniques.
 
 ## 📦 Download
 
@@ -98,6 +113,6 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  <b>MIKE-PROMPTS-BP v7.0</b> — Luxury Edition<br>
+  <b>MIKE-PROMPTS-BP v8.0</b> — Luxury Edition<br>
   <i>For authorized security testing only.</i>
 </p>
